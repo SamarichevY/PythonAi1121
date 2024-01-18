@@ -1,24 +1,23 @@
-class Людина:
-    def __init__(self, імя, вік):
-        self.імя = імя
-        self.вік = вік
-        self.робота = None
+result = []
 
-    def отримати_інформацію(self):
-        print(f"Ім'я: {self.імя}, Вік: {self.вік}")
-        if self.робота:
-            print(f"Місце роботи: {self.робота.назва}")
-        else:
-            print("Безробітний")
+def divider(a, b):
+    try:
+        if a < b:
+            raise ValueError("a should be greater than or equal to b")
+        if b > 100:
+            raise IndexError("b should be less than or equal to 100")
+        return a / b
+    except ValueError as ve:
+        print(f"ValueError: {ve}")
+    except IndexError as ie:
+        print(f"IndexError: {ie}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
-class Робота:
-    def __init__(self, назва):
-        self.назва = назва
+data = {10: 2, 2: 5, "123": 4, 18: 0, []: 15, 8: 4}
 
-людина1 = Людина("Вася", 94)
+for key in data:
+    res = divider(key, data[key])
+    result.append(res)
 
-робота1 = Робота("Офіс")
-
-людина1.робота = робота1
-
-людина1.отримати_інформацію()
+print(result)
